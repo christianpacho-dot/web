@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CONECTARE | Consultoría Inmobiliaria Industrial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --accent: #60a5fa;
+            --bg-dark: #0b0f19;
+            --bg-card: #111827;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: #1f2937;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- DISEÑO DE LOGO MEJORADO --- */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .logo-container:hover { transform: scale(1.02); }
+
+        .logo-text {
+            font-weight: 800;
+            color: #ffffff;
+            font-size: 24px;
+            letter-spacing: -1.5px;
+            text-transform: uppercase;
+        }
+
+        .logo-badge {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 18px;
+            letter-spacing: 0px;
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+        }
+
+        /* --- NAVEGACIÓN --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(11, 15, 25, 0.9);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+        }
+
+        nav { display: none; }
+
+        @media (min-width: 1024px) {
+            header { padding: 18px 8%; }
+            nav { display: block; }
+            nav a { margin-left: 25px; color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: 0.3s; }
+            nav a:hover { color: var(--primary); }
+        }
+
+        /* --- HERO SECTION CON FONDO DE MARCA --- */
+        .hero {
+            padding: 100px 5%;
+            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent), 
+                        linear-gradient(rgba(11, 15, 25, 0.8), rgba(11, 15, 25, 0.95)),
+                        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop') center/cover;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 8vw, 60px);
+            line-height: 1;
+            margin-bottom: 25px;
+            font-weight: 800;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: clamp(17px, 4vw, 21px);
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns { display: flex; flex-direction: column; gap: 15px; justify-content: center; }
+
+        @media (min-width: 768px) {
+            .hero { padding: 140px 8%; }
+            .hero-btns { flex-direction: row; }
+        }
+
+        /* --- BOTONES --- */
+        .btn {
+            padding: 18px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: block;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary { background: var(--primary); color: white; box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4); }
+        .btn-primary:hover { transform: translateY(-3px); background: var(--primary-dark); }
+        .btn-outline { border: 2px solid var(--border); color: white; background: rgba(255,255,255,0.05); }
+        .btn-outline:hover { border-color: var(--primary); background: rgba(59, 130, 246, 0.1); }
+
+        /* --- BÚSQUEDAS ACTIVAS (DISEÑO TIPO TARJETA) --- */
+        .highlight-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            margin: -40px 5% 40px;
+            padding: 45px 25px;
+            border-radius: 24px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .tags-container { display: flex; flex-direction: column; gap: 12px; margin: 30px 0; }
+        .tag {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+        }
+
+        @media (min-width: 768px) {
+            .tags-container { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+            .highlight-section { margin: -60px 8% 60px; padding: 60px; }
+        }
+
+        /* --- SERVICIOS --- */
+        .section { padding: 80px 5%; max-width: 1200px; margin: auto; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 36px; font-weight: 800; letter-spacing: -1px; margin-bottom: 15px; }
+
+        .grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
+        .card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            transition: 0.4s ease;
+        }
+        .card:hover { border-color: var(--primary); transform: translateY(-8px); background: #161e2d; }
+        .card h3 { color: var(--primary); margin-bottom: 15px; font-size: 22px; }
+        .card p { color: var(--text-muted); font-size: 15px; }
+
+        @media (min-width: 768px) { .grid { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); } }
+
+        /* --- FORMULARIOS --- */
+        .form-container {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .form-row { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 15px; }
+        @media (min-width: 768px) { .form-row { grid-template-columns: 1fr 1fr; } .form-container { padding: 50px; } }
+
+        input, textarea, select {
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid #374151;
+            background: #020617;
+            color: white;
+            font-size: 16px;
+            width: 100%;
+            transition: 0.3s;
+        }
+        input:focus { border-color: var(--primary); outline: none; background: #0b0f19; }
+
+        /* --- WHATSAPP --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        footer { padding: 80px 5% 40px; text-align: center; background: #020617; }
+    </style>
+</head>
+
+<body id="top">
+
+    <header>
+        <a href="#top" class="logo-container">
+            <span class="logo-text">Conecta</span>
+            <span class="logo-badge">RE</span>
+        </a>
+        <nav>
+            <a href="#busqueda">Búsqueda</a>
+            <a href="#captacion">Publicar</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#informe">Reportes</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Inteligencia Real Estate para la Industria.</h1>
+        <p>Expertos en la comercialización de activos logísticos y corporativos. Transformamos espacios en oportunidades de negocio.</p>
+        <div class="hero-btns">
+            <a class="btn btn-primary" href="#captacion">Tengo una propiedad</a>
+            <a class="btn btn-outline" href="#busqueda">Busco un espacio</a>
+        </div>
+    </section>
+
+    <section class="highlight-section">
+        <h2 style="color: white; font-weight: 800; font-size: 28px; letter-spacing: -1px;">Oportunidades de Salida Directa</h2>
+        <p style="color: #bfdbfe; margin-top: 10px;">Tenemos inversores calificados buscando activamente:</p>
+        
+        <div class="tags-container">
+            <div class="tag">📍 Terrenos 2.000 / 5.000 m² (Zona Norte)</div>
+            <div class="tag">📍 Depósitos Alquiler desde 500 m²</div>
+            <div class="tag">📍 Terrenos +10.000 m² (Inversión Logística)</div>
+            <div class="tag">📍 Naves con Dock de Carga (+2.500 m²)</div>
+            <div class="tag">📍 Oficinas AAA (Zona Norte)</div>
+        </div>
+        
+        <a class="btn btn-primary" href="#captacion" style="background: white; color: #1e3a8a; display: inline-block; margin-top: 15px;">Ofrecer propiedad ahora</a>
+    </section>
+
+    <section class="section" id="servicios">
+        <div class="section-header">
+            <h2>Nuestros Servicios</h2>
+            <p>Especialización técnica aplicada al mercado inmobiliario corporativo.</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>⚖️ Legal & Técnico</h3>
+                <p>Gestión de contratos industriales complejos, auditoría de catastro y validación de garantías para operaciones sin riesgos.</p>
+            </div>
+            <div class="card">
+                <h3>🏗️ Proyectos & Obra</h3>
+                <p>Asesoramiento en construcción de naves industriales. Desde el movimiento de suelos hasta proyectos llave en mano.</p>
+            </div>
+            <div class="card">
+                <h3>🎯 Captación Premium</h3>
+                <p>Estrategia de posicionamiento para que su activo llegue a los tomadores de decisión en empresas e inversores.</p>
+            </div>
+            <div class="card">
+                <h3>🔍 Búsqueda Selectiva</h3>
+                <p>Localizamos el inmueble ideal según sus requerimientos logísticos, potencia eléctrica y zonificación.</p>
+            </div>
+            <div class="card">
+                <h3>📊 Gestión de Activos</h3>
+                <p>Análisis de rentabilidad y optimización de carteras inmobiliarias para familias y grupos corporativos.</p>
+            </div>
+            <div class="card">
+                <h3>📈 Inteligencia de Datos</h3>
+                <p>Reportes de mercado exclusivos sobre precios de cierre, vacancia y tendencias en el corredor norte y sur.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="busqueda" style="background: #020617;">
+        <div class="section-header">
+            <h2>Registrá tu Búsqueda</h2>
+            <p>Accedé a nuestra base de datos "off-market" según el perfil de tu empresa.</p>
+        </div>
+        <div class="form-container">
+            <form>
+                <div class="form-row">
+                    <input type="text" placeholder="Nombre / Empresa" required>
+                    <input type="email" placeholder="Email corporativo" required>
+                </div>
+                <div class="form-row">
+                    <select required>
+                        <option value="" disabled selected>Tipo de operación</option>
+                        <option>Alquiler</option>
+                        <option>Compra</option>
+                        <option>Inversión</option>
+                    </select>
+                    <input type="text" placeholder="Superficie estimada (m²)">
+                </div>
+                <textarea placeholder="Requerimientos específicos (Docks, zonificación, etc.)" required></textarea>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Requerimientos</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="section" id="captacion">
+        <div class="section-header">
+            <h2>Publicar Activo</h2>
+            <p>Iniciá el proceso de tasación técnica para tu propiedad industrial.</p>
+        </div>
+        <div class="form-container">
+            <form>
+                <div class="form-row">
+                    <input type="text" placeholder="Propietario" required>
+                    <input type="tel" placeholder="WhatsApp" required>
+                </div>
+                <div class="form-row">
+                    <select required>
+                        <option value="" disabled selected>Tipo de Activo</option>
+                        <option>Galpón / Nave</option>
+                        <option>Terreno Industrial</option>
+                        <option>Fracción Logística</option>
+                    </select>
+                    <input type="text" placeholder="Ubicación">
+                </div>
+                <textarea placeholder="Descripción del inmueble y medidas..." required></textarea>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Solicitar Tasación</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="section" id="informe" style="background: #020617; text-align: center;">
+        <div class="section-header">
+            <h2>Market Report Mensual</h2>
+            <p>Descargá nuestro último informe de valores industriales.</p>
+        </div>
+        <div class="form-container" style="max-width: 550px; margin: auto;">
+            <form>
+                <input type="email" placeholder="Email profesional" required style="margin-bottom:15px">
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Descargar Informe Gratuito</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <a href="#top" class="logo-container" style="justify-content: center; margin-bottom: 20px;">
+            <span class="logo-text">Conecta</span>
+            <span class="logo-badge">RE</span>
+        </a>
+        <p style="color: var(--text-muted); font-size: 14px;">Consultoría Inmobiliaria Industrial & Logística</p>
+        <p style="font-size: 12px; color: #4b5563; margin-top: 40px;">© 2024 CONECTARE. Todos los derechos reservados.</p>
+    </footer>
+
+    <a href="https://wa.me/5491100000000" class="whatsapp-float" target="_blank">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+</body>
+</html>
