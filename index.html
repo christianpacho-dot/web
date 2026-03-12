@@ -1,104 +1,128 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>CONECTARE | Consultoría Inmobiliaria Industrial</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root { --primary: #3b82f6; --primary-dark: #1d4ed8; --bg-dark: #0b0f19; --bg-card: #111827; --text-muted: #9ca3af; --border: #1f2937; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--bg-dark); color: white; line-height: 1.6; overflow-x: hidden; }
-        
-        .logo-container { display: flex; align-items: center; gap: 4px; text-decoration: none; padding: 10px 0; }
-        .logo-text { font-weight: 800; color: #ffffff; font-size: 24px; text-transform: uppercase; letter-spacing: -1.5px; }
-        .logo-badge { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; padding: 2px 8px; border-radius: 6px; font-weight: 800; font-size: 18px; }
-
-        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; background: rgba(11, 15, 25, 0.9); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
-        nav a { margin-left: 20px; color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; }
-
-        .hero { padding: 100px 8%; text-align: center; background: linear-gradient(rgba(11, 15, 25, 0.8), rgba(11, 15, 25, 0.95)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop') center/cover; }
-        .hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 20px; letter-spacing: -2px; }
-        .hero p { font-size: 20px; color: var(--text-muted); margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; }
-
-        .btn { padding: 16px 30px; border-radius: 10px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.3s; border: none; cursor: pointer; }
-        .btn-primary { background: var(--primary); color: white; }
-        .btn-outline { border: 1px solid var(--border); color: white; margin-left: 10px; }
-
-        .section { padding: 80px 8%; max-width: 1200px; margin: auto; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; }
-        .card { background: var(--bg-card); padding: 35px; border-radius: 15px; border: 1px solid var(--border); }
-        .card h3 { color: var(--primary); margin-bottom: 15px; font-size: 22px; }
-
-        .form-container { background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid var(--border); margin-top: 30px; }
-        input, textarea, select { width: 100%; padding: 15px; border-radius: 10px; border: 1px solid #374151; background: #020617; color: white; font-size: 16px; margin-bottom: 15px; }
-        button { width: 100%; padding: 16px; background: var(--primary); border: none; border-radius: 10px; color: white; font-weight: 700; cursor: pointer; }
-
-        footer { padding: 60px 8%; text-align: center; border-top: 1px solid var(--border); background: #020617; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>CONECTARE | Christian Pacho - Consultoría Industrial Estratégica</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root { --primary: #2563eb; --primary-light: #60a5fa; --bg-dark: #0f172a; --bg-card: #1e293b; --text-muted: #94a3b8; --border: #334155; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+body { background: var(--bg-dark); color: #f8fafc; line-height: 1.6; overflow-x: hidden; }
+.logo-container { display: flex; align-items: center; gap: 4px; text-decoration: none; }
+.logo-text { font-weight: 800; color: #ffffff; font-size: 24px; text-transform: uppercase; letter-spacing: -1px; }
+.logo-badge { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; padding: 2px 10px; border-radius: 6px; font-weight: 800; }
+header { display: flex; justify-content: space-between; align-items: center; padding: 18px 8%; background: rgba(15, 23, 42, 0.9); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(12px); }
+nav a { margin-left: 25px; color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 600; transition: 0.3s; }
+nav a:hover { color: var(--primary-light); }
+.hero { padding: 120px 8% 80px; text-align: center; background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%); }
+.hero h1 { font-size: clamp(34px, 7vw, 60px); font-weight: 800; margin-bottom: 24px; line-height: 1.1; letter-spacing: -2px; }
+.hero h1 span { color: var(--primary-light); }
+.hero p { font-size: 20px; color: var(--text-muted); margin-bottom: 40px; max-width: 800px; margin-inline: auto; }
+.btn { padding: 18px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.3s; border: none; cursor: pointer; font-size: 16px; text-align: center; }
+.btn-primary { background: var(--primary); color: white; box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3); }
+.btn-outline { border: 1px solid var(--border); color: white; background: rgba(255,255,255,0.03); margin-left: 10px; }
+.section { padding: 100px 8%; max-width: 1300px; margin: auto; }
+.section-title { text-align: center; margin-bottom: 60px; }
+.section-title h2 { font-size: 36px; font-weight: 800; margin-bottom: 15px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.card { background: var(--bg-card); padding: 40px; border-radius: 24px; border: 1px solid var(--border); transition: 0.3s; position: relative; }
+.card:hover { border-color: var(--primary-light); transform: translateY(-8px); }
+.card-icon { font-size: 40px; margin-bottom: 25px; display: block; }
+.card h3 { font-size: 22px; margin-bottom: 15px; }
+.card p { color: var(--text-muted); font-size: 16px; }
+.forms-section { background: #020617; padding: 100px 8%; }
+.forms-grid { display: grid; grid-template-columns: 1fr; gap: 50px; max-width: 1200px; margin: auto; }
+@media (min-width: 900px) { .forms-grid { grid-template-columns: 1fr 1fr; } }
+.form-box { background: var(--bg-card); padding: 40px; border-radius: 28px; border: 1px solid var(--border); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+.form-box h3 { font-size: 26px; margin-bottom: 30px; color: var(--primary-light); }
+label { display: block; margin-bottom: 10px; font-size: 14px; font-weight: 600; color: #cbd5e1; }
+input, textarea, select { width: 100%; padding: 16px; border-radius: 12px; border: 1px solid var(--border); background: #0f172a; color: white; font-size: 16px; margin-bottom: 25px; transition: 0.3s; }
+footer { padding: 80px 8% 40px; text-align: center; background: #0f172a; border-top: 1px solid var(--border); }
+.footer-copy { color: #475569; font-size: 13px; margin-top: 40px; }
+@media (max-width: 768px) { nav { display: none; } .btn { width: 100%; margin-left: 0; } }
+</style>
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <span class="logo-text">Conecta</span><span class="logo-badge">RE</span>
-        </div>
-        <nav>
-            <a href="#servicios">Servicios</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <h1>Inteligencia Real Estate para la Industria</h1>
-        <p>Asesoramiento estratégico en activos logísticos y corporativos. Potenciamos el valor de su patrimonio.</p>
-        <a class="btn btn-primary" href="#contacto">Publicar Propiedad</a>
-        <a class="btn btn-outline" href="#servicios">Nuestros Servicios</a>
-    </section>
-
-    <section class="section" id="servicios">
-        <h2 style="font-size: 32px; text-align: center;">Servicios Profesionales</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>⚖️ Legal & Técnico</h3>
-                <p>Contratos industriales, revisión de catastro, documentación de propiedades y gestión de garantías.</p>
-            </div>
-            <div class="card">
-                <h3>🏗️ Proyectos & Obra</h3>
-                <p>Asesoramiento integral y construcción de naves industriales adaptadas a su logística.</p>
-            </div>
-            <div class="card">
-                <h3>📊 Gestión de Activos</h3>
-                <p>Optimización de carteras inmobiliarias y búsqueda estratégica de inquilinos corporativos.</p>
-            </div>
-            <div class="card">
-                <h3>🔍 Búsqueda Selectiva</h3>
-                <p>Mapeo de mercado para encontrar la planta o terreno ideal para su operación.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="contacto">
-        <div class="form-container">
-            <h2 style="margin-bottom: 20px;">Contacto Inmediato</h2>
-            <form action="https://formspree.io/f/xreyqrzw" method="POST">
-                <input type="text" name="nombre" placeholder="Nombre completo" required>
-                <input type="email" name="email" placeholder="Email corporativo" required>
-                <select name="interes">
-                    <option>Busco propiedad</option>
-                    <option>Quiero publicar/vender</option>
-                    <option>Asesoramiento legal/obra</option>
-                </select>
-                <textarea name="mensaje" placeholder="Detalle su consulta..." rows="4" required></textarea>
-                <button type="submit">Enviar Consulta</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="logo-container" style="justify-content: center; margin-bottom: 20px;">
-            <span class="logo-text">Conecta</span><span class="logo-badge">RE</span>
-        </div>
-        <p style="color: var(--text-muted);">© 2024 CONECTARE — Consultoría Inmobiliaria Industrial</p>
-    </footer>
+<header>
+<a href="#" class="logo-container">
+<span class="logo-text">Conecta</span><span class="logo-badge">RE</span>
+</a>
+<nav>
+<a href="#expertise">Servicios</a>
+<a href="#contacto">Contacto</a>
+</nav>
+</header>
+<section class="hero">
+<h1>Consultoría <span>Estratégica</span> Industrial</h1>
+<p>Expertise técnico-legal en brokerage de activos, desarrollo de proyectos, gestoría de habilitaciones y relocalización corporativa.</p>
+<div class="hero-btns">
+<a href="#publicar" class="btn btn-primary">Tasación & Gestión</a>
+<a href="#buscar" class="btn btn-outline">Solicitar Búsqueda</a>
+</div>
+</section>
+<section class="section" id="expertise">
+<div class="section-title">
+<h2>Especialización Técnica</h2>
+<p>Soluciones basadas en experiencia real de mercado</p>
+</div>
+<div class="grid">
+<div class="card">
+<span class="card-icon">📜</span>
+<h3>Gestoría en Habilitaciones</h3>
+<p>Gestión integral ante entes municipales y provinciales. Factibilidad de uso, radicación industrial y aptitud ambiental.</p>
+</div>
+<div class="card">
+<span class="card-icon">🧱</span>
+<h3>Desarrollo de Proyectos</h3>
+<p>Análisis de tierra, FOT/FOS, anteproyectos y layouts logísticos eficientes para naves industriales.</p>
+</div>
+<div class="card">
+<span class="card-icon">🏗️</span>
+<h3>Construcción & Obra</h3>
+<p>Asesoramiento en naves llave en mano. Seguimiento técnico de obra y optimización de costos constructivos.</p>
+</div>
+<div class="card">
+<span class="card-icon">💼</span>
+<h3>Brokerage Corporativo</h3>
+<p>Comercialización selectiva de depósitos, centros de distribución y fracciones industriales para inversores.</p>
+</div>
+</div>
+</section>
+<div class="forms-section" id="contacto">
+<div class="forms-grid">
+<div class="form-box" id="buscar">
+<h3>🔍 Solicitud de Búsqueda</h3>
+<form action="https://formspree.io/f/xreyqrzw" method="POST">
+<label>Nombre / Razón Social</label>
+<input type="text" name="empresa" required>
+<label>Zona y Superficie (m2)</label>
+<input type="text" name="zona_m2" placeholder="Ej: Pilar / 3000m2">
+<label>Detalles Técnicos</label>
+<textarea name="especificaciones" rows="4" placeholder="Potencia T2/T3, red de incendio, docks..."></textarea>
+<button type="submit" class="btn btn-primary">Enviar Requerimiento</button>
+</form>
+</div>
+<div class="form-box" id="publicar">
+<h3>🏢 Gestión de Activo</h3>
+<form action="https://formspree.io/f/xreyqrzw" method="POST">
+<label>Contacto</label>
+<input type="text" name="nombre" required>
+<label>Email Corporativo</label>
+<input type="email" name="email" required>
+<label>Descripción del Inmueble</label>
+<textarea name="mensaje" rows="4" placeholder="Ubicación y estado..."></textarea>
+<button type="submit" class="btn btn-primary">Iniciar Consulta</button>
+</form>
+</div>
+</div>
+</div>
+<footer>
+<div class="logo-container" style="justify-content: center;">
+<span class="logo-text">Conecta</span><span class="logo-badge">RE</span>
+</div>
+<p style="margin-top: 15px; color: #94a3b8;">Christian Pacho — Consultoría Inmobiliaria Industrial</p>
+<div class="footer-copy">© 2024 CONECTARE. Buenos Aires, Argentina.</div>
+</footer>
 </body>
 </html>
